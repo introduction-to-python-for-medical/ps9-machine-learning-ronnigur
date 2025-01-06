@@ -9,6 +9,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, classification_report
 import matplotlib.pyplot as plt
+import joblib
+
 file_path = '/content/parkinsons.csv'  # Update with your file path
 df = pd.read_csv(file_path)
 df = df.dropna()
@@ -27,6 +29,6 @@ y_pred = knn.predict(X_test_scaled)
 
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy}")
-import joblib
+
 
 joblib.dump(knn, 'my_model.joblib')
